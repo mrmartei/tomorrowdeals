@@ -199,7 +199,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="What are you looking for?"
-                    className="w-full bg-gray-50 border-none rounded-full py-2.5 pl-14 pr-6 text-sm sm:text-base font-medium focus:ring-2 focus:ring-brand-green/20 focus:outline-none transition-all placeholder:text-gray-300"
+                    className="w-full bg-gray-50 border-none rounded-full py-2 pl-14 pr-6 text-[16px] font-medium focus:ring-2 focus:ring-brand-green/20 focus:outline-none transition-all placeholder:text-gray-300"
                   />
                 </div>
 
