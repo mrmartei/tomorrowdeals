@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #166534;
+  --color-brand-green-light: #f0fdf4;
+  --font-sans: "Funnel Display", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 font-sans text-sm sm:text-base;
+  }
+  
+  /* Minimalistic smaller fonts */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
+  }
+  
+  /* Global mobile padding adjustment */
+  section {
+    @apply py-8 sm:py-16;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
