@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Cart } from './components/Cart';
 import { Footer } from './components/Footer';
@@ -8,8 +8,12 @@ import { Products } from './pages/Products';
 import { PaymentPlans } from './pages/PaymentPlans';
 import { AboutUs } from './pages/AboutUs';
 import { Contact } from './pages/Contact';
+import { Login } from './pages/Login';
+import { AdminDashboard } from './pages/AdminDashboard';
 import ProductDetail from './pages/ProductDetail';
+import { Account } from './pages/Account';
 import { Product, CartItem } from './types';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -17,6 +21,19 @@ const ScrollToTop = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;
+};
+
+const DashboardRedirect: React.FC = () => {
+  const { profile, loading } = useAuth();
+
+  if (loading) return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+  if (!profile) return <Navigate to="/login" />;
+
+  switch (profile.role) {
+    case 'admin': return <AdminDashboard />;
+    case 'customer': return <Navigate to="/" />; // Customers don't have a dashboard
+    default: return <Navigate to="/" />;
+  }
 };
 
 export default function App() {
@@ -62,37 +79,42 @@ export default function App() {
   };
 
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col font-sans selection:bg-brand-green/10 selection:text-brand-green">
-        <Navbar 
-          cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)} 
-          onOpenCart={() => setIsCartOpen(true)} 
-          animateCartTrigger={animateCartTrigger}
-        />
+    <AuthProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col font-sans selection:bg-brand-red/10 selection:text-brand-red">
+          <Navbar 
+            cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)} 
+            onOpenCart={() => setIsCartOpen(true)} 
+            animateCartTrigger={animateCartTrigger}
+          />
 
-        <main className="flex-grow pt-14 sm:pt-16">
-          <Routes>
-            <Route path="/" element={<Home onAddToCart={addToCart} />} />
-            <Route path="/products" element={<Products onAddToCart={addToCart} />} />
-            <Route path="/product/:id" element={<ProductDetail onAddToCart={addToCart} />} />
-            <Route path="/payment-plans" element={<PaymentPlans />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
+          <main className="flex-grow pt-14 sm:pt-16">
+            <Routes>
+              <Route path="/" element={<Home onAddToCart={addToCart} />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/products" element={<Products onAddToCart={addToCart} cartItems={cartItems} />} />
+              <Route path="/product/:id" element={<ProductDetail onAddToCart={addToCart} />} />
+              <Route path="/dashboard" element={<DashboardRedirect />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/payment-plans" element={<PaymentPlans />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
 
-        <Footer />
+          <Footer />
 
-        <Cart 
-          isOpen={isCartOpen} 
-          onClose={() => setIsCartOpen(false)} 
-          items={cartItems}
-          onUpdateQuantity={updateQuantity}
-          onRemove={removeFromCart}
-        />
-      </div>
-    </Router>
+          <Cart 
+            isOpen={isCartOpen} 
+            onClose={() => setIsCartOpen(false)} 
+            items={cartItems}
+            onUpdateQuantity={updateQuantity}
+            onRemove={removeFromCart}
+          />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

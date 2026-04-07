@@ -3,83 +3,74 @@ import { Product } from '../types';
 export const products: Product[] = [
   {
     id: '1',
-    name: 'Ultra-Fast Laptop Pro',
-    price: 1299.99,
-    category: 'Electronics',
-    image: 'https://picsum.photos/seed/laptop/600/400',
-    description: 'High-performance laptop for professionals and gamers.',
-    rating: 4.8
+    name: 'Premium White Rice',
+    price: 45.00,
+    retailPrice: 45.00,
+    wholesalePrice: 38.00,
+    category: 'Grains',
+    image: 'https://picsum.photos/seed/rice/600/400',
+    description: 'High-quality long-grain white rice, perfect for everyday meals.',
+    rating: 4.8,
+    shopId: 's1'
   },
   {
     id: '2',
-    name: 'Wireless Noise Cancelling Headphones',
-    price: 299.99,
-    category: 'Electronics',
-    image: 'https://picsum.photos/seed/headphones/600/400',
-    description: 'Immersive sound experience with advanced noise cancellation.',
-    rating: 4.7
+    name: 'Refined Sunflower Oil',
+    price: 12.50,
+    retailPrice: 12.50,
+    wholesalePrice: 10.20,
+    category: 'Oils',
+    image: 'https://picsum.photos/seed/oil/600/400',
+    description: 'Pure refined sunflower oil for healthy cooking.',
+    rating: 4.7,
+    shopId: 's2'
   },
   {
     id: '3',
-    name: 'Classic Leather Jacket',
-    price: 199.99,
-    category: 'Fashion',
-    image: 'https://picsum.photos/seed/jacket/600/400',
-    description: 'Timeless style with premium quality leather.',
-    rating: 4.5
+    name: 'Granulated Sugar',
+    price: 8.99,
+    retailPrice: 8.99,
+    wholesalePrice: 7.50,
+    category: 'Sweeteners',
+    image: 'https://picsum.photos/seed/sugar/600/400',
+    description: 'Fine granulated white sugar for all your baking needs.',
+    rating: 4.5,
+    shopId: 's1'
   },
   {
     id: '4',
-    name: 'Designer Cotton T-Shirt',
-    price: 34.99,
-    category: 'Fashion',
-    image: 'https://picsum.photos/seed/tshirt/600/400',
-    description: 'Comfortable and stylish everyday wear.',
-    rating: 4.3
+    name: 'Whole Wheat Flour',
+    price: 15.00,
+    retailPrice: 15.00,
+    wholesalePrice: 12.80,
+    category: 'Grains',
+    image: 'https://picsum.photos/seed/flour/600/400',
+    description: 'Nutritious whole wheat flour for healthy bread and pastries.',
+    rating: 4.3,
+    shopId: 's2'
   },
   {
     id: '5',
-    name: 'Smart Coffee Maker',
-    price: 89.99,
-    category: 'Home',
-    image: 'https://picsum.photos/seed/coffee/600/400',
-    description: 'Brew your perfect cup with smart controls.',
-    rating: 4.6
+    name: 'Extra Virgin Olive Oil',
+    price: 24.99,
+    retailPrice: 24.99,
+    wholesalePrice: 21.00,
+    category: 'Oils',
+    image: 'https://picsum.photos/seed/oliveoil/600/400',
+    description: 'Cold-pressed extra virgin olive oil from premium olives.',
+    rating: 4.6,
+    shopId: 's1'
   },
   {
     id: '6',
-    name: 'Ergonomic Office Chair',
-    price: 249.99,
-    category: 'Home',
-    image: 'https://picsum.photos/seed/chair/600/400',
-    description: 'Maximum comfort for long working hours.',
-    rating: 4.9
-  },
-  {
-    id: '7',
-    name: 'Organic Baby Onesie',
-    price: 19.99,
-    category: 'Baby Care',
-    image: 'https://picsum.photos/seed/baby/600/400',
-    description: 'Soft and gentle on your baby\'s skin.',
-    rating: 4.8
-  },
-  {
-    id: '8',
-    name: 'Baby Monitor with Camera',
-    price: 129.99,
-    category: 'Baby Care',
-    image: 'https://picsum.photos/seed/monitor/600/400',
-    description: 'Keep an eye on your little one from anywhere.',
-    rating: 4.7
-  },
-  {
-    id: '9',
-    name: 'Premium Skincare Set',
-    price: 59.99,
-    category: 'Beauty',
-    image: 'https://picsum.photos/seed/skincare/600/400',
-    description: 'Rejuvenate your skin with our natural formula.',
-    rating: 4.5
+    name: 'Yellow Maize',
+    price: 32.00,
+    retailPrice: 32.00,
+    wholesalePrice: 28.50,
+    category: 'Grains',
+    image: 'https://picsum.photos/seed/maize/600/400',
+    description: 'High-grade yellow maize for industrial and domestic use.',
+    rating: 4.9,
+    shopId: 's2'
   }
 ];

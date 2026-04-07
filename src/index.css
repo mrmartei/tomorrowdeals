@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-green: #166534;
-  --color-brand-green-light: #f0fdf4;
+  --color-brand-red: #dc2626;
+  --color-brand-red-light: #fef2f2;
   --font-sans: "Funnel Display", ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -19,7 +19,7 @@
   
   /* Global mobile padding adjustment */
   section {
-    @apply py-8 sm:py-16;
+    @apply py-6 sm:py-16;
   }
 }
 

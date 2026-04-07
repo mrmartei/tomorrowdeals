@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingCart, Search, Menu, X, ArrowRight } from 'lucide-react';
+import { ShoppingCart, Search, Menu, X, ArrowRight, User, LogOut } from 'lucide-react';
 import { motion, AnimatePresence, useAnimation } from 'motion/react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { products } from '../data/products';
 import { Product } from '../types';
+import { useAuth } from '../contexts/AuthContext';
 
 interface NavbarProps {
   cartCount: number;
@@ -12,6 +13,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCartTrigger }) => {
+  const { user, profile, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,12 +26,25 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
-    { name: 'Payment Plans', href: '/payment-plans' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
 
+  // Add Dashboard link for admins
+  const filteredNavLinks = profile?.role === 'admin' 
+    ? [{ name: 'Dashboard', href: '/dashboard' }, ...navLinks]
+    : navLinks;
+
   const isActive = (path: string) => location.pathname === path;
+
+  const handleLogout = async () => {
+    try {
+      logout();
+      navigate('/');
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
 
   // Animate cart icon when trigger changes
   useEffect(() => {
@@ -78,19 +93,19 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
           <div className="flex justify-between items-center h-14 sm:h-16">
             {/* Logo */}
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <span className="text-lg sm:text-xl font-bold tracking-tight text-brand-green">
+              <span className="text-sm sm:text-xl font-bold tracking-tight text-brand-red">
                 TOMORROW<span className="text-gray-400 font-light">DEALS</span>
               </span>
             </Link>
 
             {/* Desktop Nav */}
             <div className="hidden md:flex space-x-6 items-center">
-              {navLinks.map((link) => (
+              {filteredNavLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
                   className={`text-xs font-medium transition-colors ${
-                    isActive(link.href) ? 'text-brand-green' : 'text-gray-500 hover:text-brand-green'
+                    isActive(link.href) ? 'text-brand-red' : 'text-gray-500 hover:text-brand-red'
                   }`}
                 >
                   {link.name}
@@ -99,10 +114,10 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
             </div>
 
             {/* Icons */}
-            <div className="flex items-center space-x-3 sm:space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <button 
                 onClick={() => setIsSearchOpen(true)}
-                className="p-1.5 text-gray-500 hover:text-brand-green transition-colors"
+                className="p-1.5 text-gray-500 hover:text-brand-red transition-colors"
               >
                 <Search size={18} />
               </button>
@@ -110,18 +125,45 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
               <motion.button 
                 animate={cartControls}
                 onClick={onOpenCart}
-                className="relative p-1.5 text-gray-500 hover:text-brand-green transition-colors"
+                className="relative p-1.5 text-gray-500 hover:text-brand-red transition-colors"
               >
                 <ShoppingCart size={18} />
                 {cartCount > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 bg-brand-green text-white text-[8px] font-bold w-3.5 h-3.5 flex items-center justify-center rounded-full">
+                  <span className="absolute -top-0.5 -right-0.5 bg-brand-red text-white text-[8px] font-bold w-3.5 h-3.5 flex items-center justify-center rounded-full">
                     {cartCount}
                   </span>
                 )}
               </motion.button>
 
+              {user ? (
+                <div className="hidden sm:flex items-center gap-2">
+                  <Link 
+                    to="/account"
+                    className="flex flex-col items-end mr-1 group"
+                  >
+                    <span className="text-[10px] font-bold text-gray-900 leading-none group-hover:text-brand-red transition-colors">{profile?.name}</span>
+                    <span className="text-[8px] font-bold text-brand-red uppercase tracking-widest mt-0.5">{profile?.role}</span>
+                  </Link>
+                  <Link
+                    to="/account"
+                    className="p-1.5 text-gray-500 hover:text-brand-red transition-colors"
+                    title="Account Settings"
+                  >
+                    <User size={18} />
+                  </Link>
+                </div>
+              ) : (
+                <Link 
+                  to="/login"
+                  className="hidden sm:flex items-center gap-2 bg-brand-red text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-brand-red/90 transition-all"
+                >
+                  <User size={14} />
+                  <span>Login</span>
+                </Link>
+              )}
+
               <button 
-                className="md:hidden p-1.5 text-gray-500 hover:text-brand-green transition-colors"
+                className="md:hidden p-1.5 text-gray-500 hover:text-brand-red transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -148,19 +190,52 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
                 exit={{ opacity: 0, y: -10 }}
                 className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 overflow-hidden z-50 md:hidden"
               >
-                <div className="px-4 py-4 space-y-1">
-                  {navLinks.map((link) => (
+                <div className="px-4 py-3 space-y-1">
+                  {filteredNavLinks.map((link) => (
                     <Link
                       key={link.name}
                       to={link.href}
-                      className={`block px-3 py-3 text-sm font-medium rounded-lg ${
-                        isActive(link.href) ? 'bg-brand-green-light text-brand-green' : 'text-gray-600 hover:bg-gray-50'
+                      className={`block px-3 py-2 text-xs font-medium rounded-xl transition-all ${
+                        isActive(link.href) ? 'bg-brand-red text-white shadow-sm' : 'text-gray-600 hover:bg-gray-50'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {link.name}
                     </Link>
                   ))}
+                  
+                  {user ? (
+                    <div className="pt-3 border-t border-gray-50 space-y-1">
+                      <Link 
+                        to="/account" 
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2 text-xs font-medium text-gray-900"
+                      >
+                        <User size={16} className="text-brand-red" />
+                        My Account
+                      </Link>
+                      <button 
+                        onClick={() => {
+                          handleLogout();
+                          setIsMenuOpen(false);
+                        }}
+                        className="w-full flex items-center gap-3 px-3 py-2 text-xs font-medium text-red-500"
+                      >
+                        <LogOut size={16} />
+                        Logout
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="pt-3 border-t border-gray-50">
+                      <Link 
+                        to="/login"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block w-full bg-brand-red text-white py-2 rounded-xl text-center font-bold text-xs"
+                      >
+                        Login / Register
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             </>
@@ -179,10 +254,10 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 sm:px-6 h-16 border-b border-gray-100">
-              <span className="text-sm font-bold text-brand-green tracking-tight">SEARCH PRODUCTS</span>
+              <span className="text-sm font-bold text-brand-red tracking-tight">SEARCH PRODUCTS</span>
               <button 
                 onClick={() => setIsSearchOpen(false)}
-                className="p-2 text-gray-400 hover:text-brand-green transition-colors"
+                className="p-2 text-gray-400 hover:text-brand-red transition-colors"
               >
                 <X size={20} />
               </button>
@@ -199,7 +274,7 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="What are you looking for?"
-                    className="w-full bg-gray-50 border-none rounded-full py-2 pl-14 pr-6 text-[16px] font-medium focus:ring-2 focus:ring-brand-green/20 focus:outline-none transition-all placeholder:text-gray-300"
+                    className="w-full bg-gray-50 border-none rounded-full py-2 pl-14 pr-6 text-[16px] font-medium focus:ring-2 focus:ring-brand-red/20 focus:outline-none transition-all placeholder:text-gray-300"
                   />
                 </div>
 
@@ -217,17 +292,17 @@ export const Navbar: React.FC<NavbarProps> = ({ cartCount, onOpenCart, animateCa
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           onClick={() => handleProductClick(product.id)}
-                          className="flex items-center p-3 rounded-2xl border border-gray-100 hover:border-brand-green/20 hover:bg-gray-50 transition-all cursor-pointer group"
+                          className="flex items-center p-3 rounded-2xl border border-gray-100 hover:border-brand-red/20 hover:bg-gray-50 transition-all cursor-pointer group"
                         >
                           <div className="w-16 h-16 rounded-xl overflow-hidden bg-white flex-shrink-0 border border-gray-50">
                             <img src={product.image} alt={product.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                           </div>
                           <div className="ml-4 flex-1">
-                            <h4 className="text-xs font-bold text-gray-900 group-hover:text-brand-green transition-colors">{product.name}</h4>
+                            <h4 className="text-xs font-bold text-gray-900 group-hover:text-brand-red transition-colors">{product.name}</h4>
                             <p className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">{product.category}</p>
-                            <p className="text-xs font-bold text-brand-green mt-1">${product.price.toFixed(2)}</p>
+                            <p className="text-xs font-bold text-brand-red mt-1">${product.price.toFixed(2)}</p>
                           </div>
-                          <ArrowRight size={14} className="text-gray-300 group-hover:text-brand-green transition-colors" />
+                          <ArrowRight size={14} className="text-gray-300 group-hover:text-brand-red transition-colors" />
                         </motion.div>
                       ))}
                     </div>

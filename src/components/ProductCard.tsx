@@ -26,7 +26,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       onClick={handleCardClick}
-      className="group bg-white rounded-lg border border-gray-100 overflow-hidden hover:border-brand-green/20 transition-all duration-300 cursor-pointer"
+      className="group bg-white rounded-lg border border-gray-100 overflow-hidden hover:border-brand-red/20 transition-all duration-300 cursor-pointer"
     >
       <div className="relative aspect-square overflow-hidden bg-gray-50">
         <img
@@ -38,11 +38,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }
       </div>
       
       <div className="p-3 sm:p-4">
-        <p className="text-[10px] font-medium text-brand-green uppercase tracking-wider mb-1">
+        <p className="text-[10px] font-medium text-brand-red uppercase tracking-wider mb-1">
           {product.category}
         </p>
         
-        <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1 group-hover:text-brand-green transition-colors">
+        <h3 className="text-xs sm:text-sm font-semibold text-gray-900 mb-1 line-clamp-1 group-hover:text-brand-red transition-colors">
           {product.name}
         </h3>
         
@@ -52,7 +52,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }
           </span>
           <button
             onClick={handleAddToCart}
-            className="bg-brand-green text-white p-1.5 rounded-md hover:bg-brand-green/90 transition-all active:scale-95"
+            className="bg-brand-red text-white p-1.5 rounded-md hover:bg-brand-red/90 transition-all active:scale-95"
           >
             <Plus size={14} />
           </button>
