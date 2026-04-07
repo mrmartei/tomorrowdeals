@@ -27,8 +27,8 @@ export const AdminDashboard: React.FC = () => {
     <div className="container-custom py-8 min-h-screen">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-brand-red/10 rounded-2xl flex items-center justify-center">
-            <Shield className="w-6 h-6 text-brand-red" />
+          <div className="w-12 h-12 bg-brand-green/10 rounded-2xl flex items-center justify-center">
+            <Shield className="w-6 h-6 text-brand-green" />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-900">Admin Panel</h1>
@@ -42,7 +42,7 @@ export const AdminDashboard: React.FC = () => {
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
-                activeTab === tab ? 'bg-white text-brand-red shadow-sm' : 'text-gray-500 hover:text-gray-700'
+                activeTab === tab ? 'bg-white text-brand-green shadow-sm' : 'text-gray-500 hover:text-gray-700'
               }`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -109,11 +109,11 @@ const ProductsManager: React.FC<{ data: any, onUpdate: () => void }> = ({ data, 
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold flex items-center gap-2">
-          <ShoppingBag className="w-5 h-5 text-brand-red" /> Products Inventory
+          <ShoppingBag className="w-5 h-5 text-brand-green" /> Products Inventory
         </h2>
         <button 
           onClick={() => setIsAdding(true)}
-          className="flex items-center gap-2 bg-brand-red text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-brand-red/90 transition-all shadow-sm"
+          className="flex items-center gap-2 bg-brand-green text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-brand-green/90 transition-all shadow-sm"
         >
           <Plus size={16} /> Add Product
         </button>
@@ -145,7 +145,7 @@ const ProductsManager: React.FC<{ data: any, onUpdate: () => void }> = ({ data, 
                     type="text" 
                     value={newProduct.name}
                     onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}
-                    className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-red transition-all"
+                    className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-green transition-all"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -157,7 +157,7 @@ const ProductsManager: React.FC<{ data: any, onUpdate: () => void }> = ({ data, 
                       step="0.01"
                       value={newProduct.retailPrice}
                       onChange={(e) => setNewProduct({...newProduct, retailPrice: parseFloat(e.target.value)})}
-                      className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-red transition-all"
+                      className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-green transition-all"
                     />
                   </div>
                   <div className="space-y-1">
@@ -168,7 +168,7 @@ const ProductsManager: React.FC<{ data: any, onUpdate: () => void }> = ({ data, 
                       step="0.01"
                       value={newProduct.wholesalePrice}
                       onChange={(e) => setNewProduct({...newProduct, wholesalePrice: parseFloat(e.target.value)})}
-                      className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-red transition-all"
+                      className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-green transition-all"
                     />
                   </div>
                 </div>
@@ -177,7 +177,7 @@ const ProductsManager: React.FC<{ data: any, onUpdate: () => void }> = ({ data, 
                   <select 
                     value={newProduct.category}
                     onChange={(e) => setNewProduct({...newProduct, category: e.target.value})}
-                    className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-red transition-all"
+                    className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-green transition-all"
                   >
                     <option>Grains</option>
                     <option>Oils</option>
@@ -194,10 +194,10 @@ const ProductsManager: React.FC<{ data: any, onUpdate: () => void }> = ({ data, 
                     rows={3}
                     value={newProduct.description}
                     onChange={(e) => setNewProduct({...newProduct, description: e.target.value})}
-                    className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-red transition-all resize-none"
+                    className="w-full bg-gray-50 border-none rounded-xl py-2 px-4 text-sm focus:ring-2 focus:ring-brand-green transition-all resize-none"
                   />
                 </div>
-                <button type="submit" className="w-full bg-brand-red text-white py-3 rounded-2xl font-bold text-sm hover:bg-brand-red/90 transition-all shadow-sm mt-4">
+                <button type="submit" className="w-full bg-brand-green text-white py-3 rounded-2xl font-bold text-sm hover:bg-brand-green/90 transition-all shadow-sm mt-4">
                   Create Product
                 </button>
               </form>
@@ -231,7 +231,7 @@ const ProductsManager: React.FC<{ data: any, onUpdate: () => void }> = ({ data, 
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-gray-50 p-3 rounded-xl">
                   <p className="text-[10px] text-gray-400 uppercase font-bold mb-1">Retail</p>
-                  <p className="text-brand-red font-bold">${selectedProduct.retailPrice.toFixed(2)}</p>
+                  <p className="text-brand-green font-bold">${selectedProduct.retailPrice.toFixed(2)}</p>
                 </div>
                 <div className="bg-gray-50 p-3 rounded-xl">
                   <p className="text-[10px] text-gray-400 uppercase font-bold mb-1">Wholesale</p>
@@ -274,11 +274,11 @@ const ProductsManager: React.FC<{ data: any, onUpdate: () => void }> = ({ data, 
                   </div>
                 </td>
                 <td className="py-2 text-gray-500">{p.category}</td>
-                <td className="py-2 font-bold text-brand-red">${p.retailPrice.toFixed(2)}</td>
+                <td className="py-2 font-bold text-brand-green">${p.retailPrice.toFixed(2)}</td>
                 <td className="py-2 font-bold text-gray-900">${p.wholesalePrice.toFixed(2)}</td>
                 <td className="py-2 text-right">
                   <div className="flex items-center justify-end gap-2">
-                    <button onClick={() => setSelectedProduct(p)} className="p-2 text-gray-400 hover:text-brand-red transition-colors">
+                    <button onClick={() => setSelectedProduct(p)} className="p-2 text-gray-400 hover:text-brand-green transition-colors">
                       <Eye size={16} />
                     </button>
                     <button onClick={() => { mockStore.deleteProduct(p.id); onUpdate(); }} className="p-2 text-red-400 hover:text-red-600 transition-colors">
@@ -327,7 +327,7 @@ const UsersManager: React.FC<{ role: 'customer' | 'admin', data: any, onUpdate: 
   return (
     <div className="space-y-8">
       <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
-        <Users className="w-5 h-5 text-brand-red" /> {role.charAt(0).toUpperCase() + role.slice(1)}s
+        <Users className="w-5 h-5 text-brand-green" /> {role.charAt(0).toUpperCase() + role.slice(1)}s
       </h2>
 
       {/* User Detail Modal */}
@@ -347,11 +347,11 @@ const UsersManager: React.FC<{ role: 'customer' | 'admin', data: any, onUpdate: 
               <button onClick={() => setSelectedUser(null)} className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-colors">
                 <X size={20} className="text-gray-400" />
               </button>
-              <div className="w-16 h-16 bg-brand-red/10 rounded-2xl flex items-center justify-center mb-6">
-                <Users className="w-8 h-8 text-brand-red" />
+              <div className="w-16 h-16 bg-brand-green/10 rounded-2xl flex items-center justify-center mb-6">
+                <Users className="w-8 h-8 text-brand-green" />
               </div>
               <h3 className="text-xl font-bold mb-1">{selectedUser.name}</h3>
-              <p className="text-brand-red text-xs font-bold uppercase tracking-widest mb-6">{selectedUser.role}</p>
+              <p className="text-brand-green text-xs font-bold uppercase tracking-widest mb-6">{selectedUser.role}</p>
               
               <div className="space-y-4 mb-8">
                 <div className="bg-gray-50 p-4 rounded-2xl">
@@ -398,7 +398,7 @@ const UsersManager: React.FC<{ role: 'customer' | 'admin', data: any, onUpdate: 
                 </td>
                 <td className="py-2 text-right">
                   <div className="flex items-center justify-end gap-2">
-                    <button onClick={() => setSelectedUser(u)} className="p-2 text-gray-400 hover:text-brand-red transition-colors">
+                    <button onClick={() => setSelectedUser(u)} className="p-2 text-gray-400 hover:text-brand-green transition-colors">
                       <Eye size={16} />
                     </button>
                     <button onClick={() => { mockStore.deleteUser(u.id); onUpdate(); }} className="p-2 text-red-400 hover:text-red-600 transition-colors">

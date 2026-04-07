@@ -31,7 +31,7 @@ export const PaymentPlans: React.FC = () => {
           className="max-w-md mx-auto bg-white p-12 rounded-[40px] border border-gray-100 shadow-xl"
         >
           <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle2 className="w-10 h-10 text-brand-red" />
+            <CheckCircle2 className="w-10 h-10 text-brand-green" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Order Placed!</h1>
           <p className="text-gray-500 text-sm mb-8">
@@ -39,7 +39,7 @@ export const PaymentPlans: React.FC = () => {
           </p>
           <button 
             onClick={() => navigate('/')}
-            className="w-full bg-brand-red text-white py-4 rounded-2xl font-bold text-sm hover:bg-brand-red/90 transition-all"
+            className="w-full bg-brand-green text-white py-4 rounded-2xl font-bold text-sm hover:bg-brand-green/90 transition-all"
           >
             Back to Home
           </button>
@@ -60,7 +60,7 @@ export const PaymentPlans: React.FC = () => {
         <div className="space-y-8">
           <div className="bg-white p-8 rounded-[40px] border border-gray-100 shadow-sm">
             <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <ShoppingBag className="text-brand-red" /> Order Summary
+              <ShoppingBag className="text-brand-green" /> Order Summary
             </h2>
             
             {checkoutData ? (
@@ -90,13 +90,13 @@ export const PaymentPlans: React.FC = () => {
                     <div className="flex bg-gray-100 p-1 rounded-xl">
                       <button 
                         onClick={() => setPurchaseType('retail')}
-                        className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${purchaseType === 'retail' ? 'bg-white text-brand-red shadow-sm' : 'text-gray-400'}`}
+                        className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${purchaseType === 'retail' ? 'bg-white text-brand-green shadow-sm' : 'text-gray-400'}`}
                       >
                         Retail
                       </button>
                       <button 
                         onClick={() => setPurchaseType('wholesale')}
-                        className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${purchaseType === 'wholesale' ? 'bg-white text-brand-red shadow-sm' : 'text-gray-400'}`}
+                        className={`px-4 py-1.5 rounded-lg text-[10px] font-bold transition-all ${purchaseType === 'wholesale' ? 'bg-white text-brand-green shadow-sm' : 'text-gray-400'}`}
                       >
                         Wholesale
                       </button>
@@ -104,14 +104,14 @@ export const PaymentPlans: React.FC = () => {
                   </div>
                   <div className="flex justify-between items-center pt-2">
                     <span className="text-sm font-bold text-gray-900">Total Amount</span>
-                    <span className="text-2xl font-bold text-brand-red">${currentTotal.toFixed(2)}</span>
+                    <span className="text-2xl font-bold text-brand-green">${currentTotal.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
             ) : (
               <div className="text-center py-12">
                 <p className="text-gray-400 text-sm italic">Your cart is empty.</p>
-                <button onClick={() => navigate('/products')} className="mt-4 text-brand-red font-bold text-sm">Browse Products</button>
+                <button onClick={() => navigate('/products')} className="mt-4 text-brand-green font-bold text-sm">Browse Products</button>
               </div>
             )}
           </div>
@@ -121,16 +121,16 @@ export const PaymentPlans: React.FC = () => {
         <div className="space-y-6">
           <h2 className="text-xl font-bold text-gray-900 mb-2">Select Payment Plan</h2>
           {[
-            { title: "Full Payment", desc: "Pay the total amount upfront and get a 2% discount.", icon: <Zap className="text-brand-red" /> },
-            { title: "3-Month Installment", desc: "Split your payment into 3 easy monthly installments.", icon: <CreditCard className="text-brand-red" /> },
-            { title: "6-Month Installment", desc: "Pay over 6 months with zero interest.", icon: <ShieldCheck className="text-brand-red" /> }
+            { title: "Full Payment", desc: "Pay the total amount upfront and get a 2% discount.", icon: <Zap className="text-brand-green" /> },
+            { title: "3-Month Installment", desc: "Split your payment into 3 easy monthly installments.", icon: <CreditCard className="text-brand-green" /> },
+            { title: "6-Month Installment", desc: "Pay over 6 months with zero interest.", icon: <ShieldCheck className="text-brand-green" /> }
           ].map((plan, i) => (
             <button 
               key={i}
               onClick={handleFinalize}
-              className="w-full bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:border-brand-red hover:shadow-md transition-all text-left flex items-center gap-6 group"
+              className="w-full bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:border-brand-green hover:shadow-md transition-all text-left flex items-center gap-6 group"
             >
-              <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-brand-red/10 transition-colors">
+              <div className="w-12 h-12 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-brand-green/10 transition-colors">
                 {plan.icon}
               </div>
               <div className="flex-1">
@@ -142,12 +142,12 @@ export const PaymentPlans: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-brand-red text-white rounded-[40px] p-8 sm:p-16 text-center">
+      <div className="bg-brand-green text-white rounded-[40px] p-8 sm:p-16 text-center">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6">Need Help?</h2>
         <p className="text-sm sm:text-base text-white/80 mb-10 max-w-lg mx-auto">
           Our customer support team is available 24/7 to help you with your purchase and payment options.
         </p>
-        <button className="bg-white text-brand-red px-10 py-4 rounded-full font-bold text-sm hover:bg-gray-100 transition-all">
+        <button className="bg-white text-brand-green px-10 py-4 rounded-full font-bold text-sm hover:bg-gray-100 transition-all">
           Contact Support
         </button>
       </div>

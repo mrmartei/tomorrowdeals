@@ -7,7 +7,7 @@ export const AboutUs: React.FC = () => {
     <div className="container-custom py-12 sm:py-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div className="relative">
-          <div className="aspect-square bg-brand-red-light rounded-[40px] absolute inset-0 -rotate-3" />
+          <div className="aspect-square bg-brand-green-light rounded-[40px] absolute inset-0 -rotate-3" />
           <img 
             src="https://picsum.photos/seed/about/800/800" 
             alt="About Us" 
@@ -47,15 +47,15 @@ export const AboutUs: React.FC = () => {
           </div>
           <div className="grid grid-cols-3 gap-6 pt-8">
             <div>
-              <h4 className="text-xl sm:text-2xl font-bold text-brand-red">50k+</h4>
+              <h4 className="text-xl sm:text-2xl font-bold text-brand-green">50k+</h4>
               <p className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest mt-1">Customers</p>
             </div>
             <div>
-              <h4 className="text-xl sm:text-2xl font-bold text-brand-red">10k+</h4>
+              <h4 className="text-xl sm:text-2xl font-bold text-brand-green">10k+</h4>
               <p className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest mt-1">Products</p>
             </div>
             <div>
-              <h4 className="text-xl sm:text-2xl font-bold text-brand-red">24/7</h4>
+              <h4 className="text-xl sm:text-2xl font-bold text-brand-green">24/7</h4>
               <p className="text-[10px] sm:text-xs text-gray-400 uppercase tracking-widest mt-1">Support</p>
             </div>
           </div>

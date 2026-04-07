@@ -47,7 +47,7 @@ export const EditableText: React.FC<EditableTextProps> = ({ id, defaultText, cla
           <textarea
             value={tempText}
             onChange={(e) => setTempText(e.target.value)}
-            className={`w-full bg-white border-2 border-brand-red rounded-lg p-2 focus:outline-none ${className}`}
+            className={`w-full bg-white border-2 border-brand-green rounded-lg p-2 focus:outline-none ${className}`}
             autoFocus
           />
         ) : (
@@ -55,7 +55,7 @@ export const EditableText: React.FC<EditableTextProps> = ({ id, defaultText, cla
             type="text"
             value={tempText}
             onChange={(e) => setTempText(e.target.value)}
-            className={`w-full bg-white border-2 border-brand-red rounded-lg px-2 py-1 focus:outline-none ${className}`}
+            className={`w-full bg-white border-2 border-brand-green rounded-lg px-2 py-1 focus:outline-none ${className}`}
             autoFocus
           />
         )}
@@ -76,7 +76,7 @@ export const EditableText: React.FC<EditableTextProps> = ({ id, defaultText, cla
       <span className={className}>{text}</span>
       <button 
         onClick={() => setIsEditing(true)}
-        className="absolute -right-6 top-1/2 -translate-y-1/2 p-1 text-gray-300 hover:text-brand-red opacity-0 group-hover:opacity-100 transition-all"
+        className="absolute -right-6 top-1/2 -translate-y-1/2 p-1 text-gray-300 hover:text-brand-green opacity-0 group-hover:opacity-100 transition-all"
       >
         <Edit2 size={12} />
       </button>

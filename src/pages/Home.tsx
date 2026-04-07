@@ -21,7 +21,7 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
   return (
     <div className="space-y-0">
       {/* Hero */}
-      <section className="relative bg-brand-red-light overflow-hidden">
+      <section className="relative bg-brand-green-light overflow-hidden">
         <div className="container-custom py-6 sm:py-16 flex flex-col items-center text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -46,7 +46,7 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
             <div className="flex justify-center">
               <Link 
                 to="/products"
-                className="bg-brand-red text-white px-8 py-3 rounded-full font-semibold text-sm flex items-center hover:bg-brand-red/90 transition-all"
+                className="bg-brand-green text-white px-8 py-3 rounded-full font-semibold text-sm flex items-center hover:bg-brand-green/90 transition-all"
               >
                 Explore Products
                 <ArrowRight size={16} className="ml-2" />
@@ -60,10 +60,10 @@ export const Home: React.FC<HomeProps> = ({ onAddToCart }) => {
       <section className="container-custom py-12">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-2">
-            <ShoppingBag size={18} className="text-brand-red" />
+            <ShoppingBag size={18} className="text-brand-green" />
             <h2 className="text-lg sm:text-xl font-bold">Featured Commodities</h2>
           </div>
-          <Link to="/products" className="text-xs font-bold text-brand-red hover:underline">
+          <Link to="/products" className="text-xs font-bold text-brand-green hover:underline">
             View All
           </Link>
         </div>

@@ -47,7 +47,7 @@ export const Cart: React.FC<CartProps> = ({ isOpen, onClose, items, onUpdateQuan
           >
             <div className="p-4 sm:p-6 flex items-center justify-between border-b border-gray-100">
               <div className="flex items-center space-x-2">
-                <ShoppingBag size={18} className="text-brand-red" />
+                <ShoppingBag size={18} className="text-brand-green" />
                 <h2 className="text-base sm:text-lg font-bold">Your Cart</h2>
                 <span className="bg-gray-100 text-gray-500 text-[10px] px-2 py-0.5 rounded-full">
                   {items.length}
@@ -73,7 +73,7 @@ export const Cart: React.FC<CartProps> = ({ isOpen, onClose, items, onUpdateQuan
                   </div>
                   <button 
                     onClick={onClose}
-                    className="bg-brand-red text-white px-6 py-2 rounded-full font-bold text-xs hover:bg-brand-red/90 transition-all"
+                    className="bg-brand-green text-white px-6 py-2 rounded-full font-bold text-xs hover:bg-brand-green/90 transition-all"
                   >
                     Start Shopping
                   </button>
@@ -138,7 +138,7 @@ export const Cart: React.FC<CartProps> = ({ isOpen, onClose, items, onUpdateQuan
                 </div>
                 <button 
                   onClick={handleCheckout}
-                  className="w-full bg-brand-red text-white py-3 rounded-xl font-bold text-sm hover:bg-brand-red/90 transition-all shadow-sm flex items-center justify-center gap-2"
+                  className="w-full bg-brand-green text-white py-3 rounded-xl font-bold text-sm hover:bg-brand-green/90 transition-all shadow-sm flex items-center justify-center gap-2"
                 >
                   <CreditCard size={18} /> Checkout Now
                 </button>

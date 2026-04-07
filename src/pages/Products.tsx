@@ -39,7 +39,7 @@ export const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-gray-50 border border-gray-100 rounded-full py-2 pl-11 pr-4 text-sm focus:ring-2 focus:ring-brand-red/20 outline-none transition-all"
+              className="w-full bg-gray-50 border border-gray-100 rounded-full py-2 pl-11 pr-4 text-sm focus:ring-2 focus:ring-brand-green/20 outline-none transition-all"
             />
           </div>
         </div>
@@ -48,7 +48,7 @@ export const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
           <button
             onClick={() => setSelectedCategory('')}
             className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-              !selectedCategory ? 'bg-brand-red text-white shadow-sm' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
+              !selectedCategory ? 'bg-brand-green text-white shadow-sm' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
             }`}
           >
             All Items
@@ -58,7 +58,7 @@ export const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                selectedCategory === cat ? 'bg-brand-red text-white shadow-sm' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
+                selectedCategory === cat ? 'bg-brand-green text-white shadow-sm' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
               }`}
             >
               {cat}

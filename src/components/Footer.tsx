@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
           {/* Brand */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center">
-              <span className="text-lg font-bold tracking-tight text-brand-red">
+              <span className="text-lg font-bold tracking-tight text-brand-green">
                 TOMORROW<span className="text-gray-400 font-light">DEALS</span>
               </span>
             </Link>
@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-3">
               {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="p-1.5 text-gray-400 hover:text-brand-red transition-colors">
+                <a key={i} href="#" className="p-1.5 text-gray-400 hover:text-brand-green transition-colors">
                   <Icon size={16} />
                 </a>
               ))}
@@ -31,15 +31,15 @@ export const Footer: React.FC = () => {
             <h4 className="text-xs font-bold text-gray-900 uppercase tracking-widest mb-4">Contact</h4>
             <ul className="space-y-3 text-xs text-gray-500">
               <li className="flex items-center space-x-2">
-                <Phone size={14} className="text-brand-red" />
+                <Phone size={14} className="text-brand-green" />
                 <span>+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center space-x-2">
-                <Mail size={14} className="text-brand-red" />
+                <Mail size={14} className="text-brand-green" />
                 <span>support@tomorrowdeals.com</span>
               </li>
               <li className="flex items-start space-x-2">
-                <MapPin size={14} className="text-brand-red mt-0.5" />
+                <MapPin size={14} className="text-brand-green mt-0.5" />
                 <span>123 Commerce Ave, Digital City</span>
               </li>
             </ul>
@@ -49,8 +49,8 @@ export const Footer: React.FC = () => {
         <div className="border-t border-gray-50 pt-6 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 space-y-2 md:space-y-0">
           <p>© 2026 TomorrowDeals. All rights reserved.</p>
           <div className="flex space-x-4">
-            <a href="#" className="hover:text-brand-red transition-colors">Privacy</a>
-            <a href="#" className="hover:text-brand-red transition-colors">Terms</a>
+            <a href="#" className="hover:text-brand-green transition-colors">Privacy</a>
+            <a href="#" className="hover:text-brand-green transition-colors">Terms</a>
           </div>
         </div>
       </div>

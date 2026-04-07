@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-red: #dc2626;
-  --color-brand-red-light: #fef2f2;
+  --color-brand-green: #15803d;
+  --color-brand-green-light: #f0fdf4;
   --font-sans: "Funnel Display", ui-sans-serif, system-ui, sans-serif;
 }
 

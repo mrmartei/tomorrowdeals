@@ -33,7 +33,7 @@ export const Account: React.FC = () => {
         <p className="text-gray-500">Please login to view your account.</p>
         <button 
           onClick={() => navigate('/login')}
-          className="mt-4 bg-brand-red text-white px-8 py-3 rounded-full font-bold text-sm"
+          className="mt-4 bg-brand-green text-white px-8 py-3 rounded-full font-bold text-sm"
         >
           Login Now
         </button>
@@ -43,8 +43,8 @@ export const Account: React.FC = () => {
 
   const getRoleIcon = () => {
     switch (profile.role) {
-      case 'admin': return <ShieldCheck className="text-brand-red" />;
-      default: return <ShoppingBag className="text-brand-red" />;
+      case 'admin': return <ShieldCheck className="text-brand-green" />;
+      default: return <ShoppingBag className="text-brand-green" />;
     }
   };
 
@@ -59,20 +59,20 @@ export const Account: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               className="bg-white p-8 rounded-[40px] border border-gray-100 shadow-sm text-center"
             >
-              <div className="w-24 h-24 bg-brand-red/5 rounded-[32px] flex items-center justify-center mx-auto mb-6">
-                <User size={40} className="text-brand-red" />
+              <div className="w-24 h-24 bg-brand-green/5 rounded-[32px] flex items-center justify-center mx-auto mb-6">
+                <User size={40} className="text-brand-green" />
               </div>
               <h1 className="text-xl font-bold text-gray-900 mb-1">{profile.name}</h1>
               <div className="flex items-center justify-center gap-2 mb-6">
                 {getRoleIcon()}
-                <span className="text-[10px] font-bold text-brand-red uppercase tracking-widest">{profile.role}</span>
+                <span className="text-[10px] font-bold text-brand-green uppercase tracking-widest">{profile.role}</span>
               </div>
               
               <div className="space-y-3 pt-6 border-t border-gray-50">
                 {profile.role === 'admin' && (
                   <button 
                     onClick={() => navigate('/dashboard')}
-                    className="w-full flex items-center justify-center gap-2 py-3 bg-brand-red text-white rounded-2xl font-bold text-xs hover:bg-brand-red/90 transition-all shadow-sm"
+                    className="w-full flex items-center justify-center gap-2 py-3 bg-brand-green text-white rounded-2xl font-bold text-xs hover:bg-brand-green/90 transition-all shadow-sm"
                   >
                     <ShieldCheck size={16} /> Admin Dashboard
                   </button>
@@ -99,7 +99,7 @@ export const Account: React.FC = () => {
                 {!isEditing && (
                   <button 
                     onClick={() => setIsEditing(true)}
-                    className="text-brand-red font-bold text-xs hover:underline"
+                    className="text-brand-green font-bold text-xs hover:underline"
                   >
                     Edit Profile
                   </button>
@@ -117,7 +117,7 @@ export const Account: React.FC = () => {
                       value={formData.name}
                       disabled={!isEditing}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-red/20 outline-none transition-all disabled:opacity-60"
+                      className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-green/20 outline-none transition-all disabled:opacity-60"
                     />
                   </div>
                   <div className="space-y-2">
@@ -129,7 +129,7 @@ export const Account: React.FC = () => {
                       value={formData.email}
                       disabled={!isEditing}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-red/20 outline-none transition-all disabled:opacity-60"
+                      className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-green/20 outline-none transition-all disabled:opacity-60"
                     />
                   </div>
                   <div className="space-y-2">
@@ -142,12 +142,12 @@ export const Account: React.FC = () => {
                         value={formData.currentPassword}
                         disabled={!isEditing}
                         onChange={(e) => setFormData({...formData, currentPassword: e.target.value})}
-                        className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-red/20 outline-none transition-all disabled:opacity-60"
+                        className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-green/20 outline-none transition-all disabled:opacity-60"
                       />
                       <button 
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-red transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-brand-green transition-colors"
                       >
                         {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
                       </button>
@@ -163,7 +163,7 @@ export const Account: React.FC = () => {
                         placeholder="Enter new password"
                         value={formData.newPassword}
                         onChange={(e) => setFormData({...formData, newPassword: e.target.value})}
-                        className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-red/20 outline-none transition-all"
+                        className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-green/20 outline-none transition-all"
                       />
                     </div>
                   )}
@@ -181,7 +181,7 @@ export const Account: React.FC = () => {
                   <div className="flex gap-3 pt-4">
                     <button 
                       type="submit"
-                      className="bg-brand-red text-white px-6 py-2 rounded-full font-bold text-xs flex items-center gap-2 hover:bg-brand-red/90 transition-all"
+                      className="bg-brand-green text-white px-6 py-2 rounded-full font-bold text-xs flex items-center gap-2 hover:bg-brand-green/90 transition-all"
                     >
                       <Save size={14} /> Save Changes
                     </button>

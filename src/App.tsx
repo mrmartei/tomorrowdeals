@@ -82,7 +82,7 @@ export default function App() {
     <AuthProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen flex flex-col font-sans selection:bg-brand-red/10 selection:text-brand-red">
+        <div className="min-h-screen flex flex-col font-sans selection:bg-brand-green/10 selection:text-brand-green">
           <Navbar 
             cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)} 
             onOpenCart={() => setIsCartOpen(true)} 

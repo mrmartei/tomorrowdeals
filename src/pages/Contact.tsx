@@ -42,7 +42,7 @@ export const Contact: React.FC = () => {
               </p>
               <button 
                 onClick={() => setShowPopup(false)}
-                className="w-full bg-brand-red text-white py-3 rounded-2xl font-bold text-sm hover:bg-brand-red/90 transition-all shadow-sm"
+                className="w-full bg-brand-green text-white py-3 rounded-2xl font-bold text-sm hover:bg-brand-green/90 transition-all shadow-sm"
               >
                 Got it
               </button>
@@ -70,7 +70,7 @@ export const Contact: React.FC = () => {
                   required
                   type="text" 
                   placeholder="John Doe"
-                  className="w-full bg-white border-none rounded-2xl py-2 px-4 text-[16px] placeholder:text-[13px] focus:ring-2 focus:ring-brand-red transition-all"
+                  className="w-full bg-white border-none rounded-2xl py-2 px-4 text-[16px] placeholder:text-[13px] focus:ring-2 focus:ring-brand-green transition-all"
                 />
               </div>
               <div className="space-y-1">
@@ -79,7 +79,7 @@ export const Contact: React.FC = () => {
                   required
                   type="email" 
                   placeholder="john@example.com"
-                  className="w-full bg-white border-none rounded-2xl py-2 px-4 text-[16px] placeholder:text-[13px] focus:ring-2 focus:ring-brand-red transition-all"
+                  className="w-full bg-white border-none rounded-2xl py-2 px-4 text-[16px] placeholder:text-[13px] focus:ring-2 focus:ring-brand-green transition-all"
                 />
               </div>
             </div>
@@ -89,7 +89,7 @@ export const Contact: React.FC = () => {
                 required
                 type="text" 
                 placeholder="How can we help?"
-                className="w-full bg-white border-none rounded-2xl py-2 px-4 text-[16px] placeholder:text-[13px] focus:ring-2 focus:ring-brand-red transition-all"
+                className="w-full bg-white border-none rounded-2xl py-2 px-4 text-[16px] placeholder:text-[13px] focus:ring-2 focus:ring-brand-green transition-all"
               />
             </div>
             <div className="space-y-1">
@@ -98,17 +98,17 @@ export const Contact: React.FC = () => {
                 required
                 rows={4}
                 placeholder="Your message here..."
-                className="w-full bg-white border-none rounded-2xl py-2 px-4 text-[16px] placeholder:text-[13px] focus:ring-2 focus:ring-brand-red transition-all resize-none"
+                className="w-full bg-white border-none rounded-2xl py-2 px-4 text-[16px] placeholder:text-[13px] focus:ring-2 focus:ring-brand-green transition-all resize-none"
               />
             </div>
-            <button type="submit" className="w-full bg-brand-red text-white py-3 rounded-2xl font-bold text-sm hover:bg-brand-red/90 transition-all shadow-sm">
+            <button type="submit" className="w-full bg-brand-green text-white py-3 rounded-2xl font-bold text-sm hover:bg-brand-green/90 transition-all shadow-sm">
               Send Message
             </button>
           </form>
         </div>
         
         <div className="space-y-6">
-          <div className="bg-brand-red text-white p-8 sm:p-10 rounded-[32px] h-full">
+          <div className="bg-brand-green text-white p-8 sm:p-10 rounded-[32px] h-full">
             <h3 className="text-xl font-bold mb-8">Contact Info</h3>
             <div className="space-y-8">
               <div className="flex items-start space-x-4">

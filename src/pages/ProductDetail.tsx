@@ -24,7 +24,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
         <h2 className="text-xl font-bold text-gray-900 mb-4">Product not found</h2>
         <button
           onClick={() => navigate('/products')}
-          className="text-brand-red font-medium flex items-center space-x-2"
+          className="text-brand-green font-medium flex items-center space-x-2"
         >
           <ArrowLeft size={16} />
           <span>Back to products</span>
@@ -39,7 +39,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
         {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
-          className="mb-6 flex items-center space-x-2 text-gray-500 hover:text-brand-red transition-colors text-xs font-medium"
+          className="mb-6 flex items-center space-x-2 text-gray-500 hover:text-brand-green transition-colors text-xs font-medium"
         >
           <ArrowLeft size={14} />
           <span>Back</span>
@@ -67,13 +67,13 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
             className="flex flex-col"
           >
             <div className="mb-6">
-              <span className="inline-block px-2 py-1 bg-brand-red-light text-brand-red text-[10px] font-bold uppercase tracking-wider rounded mb-3">
+              <span className="inline-block px-2 py-1 bg-brand-green-light text-brand-green text-[10px] font-bold uppercase tracking-wider rounded mb-3">
                 {product.category}
               </span>
               <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 leading-tight">
                 {product.name}
               </h1>
-              <p className="text-xl font-bold text-brand-red">
+              <p className="text-xl font-bold text-brand-green">
                 ${product.price.toFixed(2)}
               </p>
             </div>
@@ -91,7 +91,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
             <div className="space-y-4 mb-8">
               <button
                 onClick={() => onAddToCart(product)}
-                className="w-full bg-brand-red text-white py-4 rounded-xl font-bold text-sm flex items-center justify-center space-x-2 hover:bg-opacity-90 transition-all active:scale-[0.98]"
+                className="w-full bg-brand-green text-white py-4 rounded-xl font-bold text-sm flex items-center justify-center space-x-2 hover:bg-opacity-90 transition-all active:scale-[0.98]"
               >
                 <ShoppingCart size={18} />
                 <span>Add to Cart</span>
@@ -105,19 +105,19 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ onAddToCart }) => {
             {/* Features */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-gray-100">
               <div className="flex flex-col items-center text-center space-y-2">
-                <div className="p-2 bg-gray-50 rounded-full text-brand-red">
+                <div className="p-2 bg-gray-50 rounded-full text-brand-green">
                   <Truck size={16} />
                 </div>
                 <span className="text-[10px] font-medium text-gray-500">Free Shipping</span>
               </div>
               <div className="flex flex-col items-center text-center space-y-2">
-                <div className="p-2 bg-gray-50 rounded-full text-brand-red">
+                <div className="p-2 bg-gray-50 rounded-full text-brand-green">
                   <Shield size={16} />
                 </div>
                 <span className="text-[10px] font-medium text-gray-500">Secure Payment</span>
               </div>
               <div className="flex flex-col items-center text-center space-y-2">
-                <div className="p-2 bg-gray-50 rounded-full text-brand-red">
+                <div className="p-2 bg-gray-50 rounded-full text-brand-green">
                   <RefreshCw size={16} />
                 </div>
                 <span className="text-[10px] font-medium text-gray-500">Easy Returns</span>
